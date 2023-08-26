@@ -1,0 +1,19 @@
+function armStrong(num, length)
+{	
+	var temp = num;
+	var ans = 0;
+	for (var i=1 ; i<=length ; i++)
+	{
+		var digit = num % 10;
+		ans = (digit ** length) + ans;
+		num = Math.floor(num / 10);
+	}
+	if (ans == temp)
+	{
+		console.log("It is an ArmStrong number");
+	}
+	else
+	{
+		console.log("NOT an ArmStrong number");
+	}
+}

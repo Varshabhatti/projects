@@ -1,0 +1,8 @@
+function rectangle()
+{
+    let length = parseInt(prompt("Enter length"));
+    let breadth = parseInt(prompt("Enter breadth"));
+
+    console.log("Area = ", length*breadth);
+    console.log("Perimeter = ", 2*(length+breadth));
+}

@@ -1,0 +1,64 @@
+//Q-1. Create an Array of Salaries, Now do the Sum of Salaries who is greater than 10000.
+//Hint : reduce function
+
+var salary = [10000, 5000, 25000, 30000, 9000, 13000, 7500];
+
+var sumSalary = salary.reduce((accumulator, currentValue) => accumulator + (currentValue > 10000 ? currentValue : 0), 0);
+console.log("The sum of salary greater than 10,000 : ", sumSalary);
+
+
+//Q-2. Get the Max Salary from the Array
+//Hint : reduce function
+
+var maxSalary = salary.reduce((accumulator, currentValue) => (accumulator > currentValue ? accumulator : currentValue));
+console.log("The maximum salary : ", maxSalary);
+
+
+//Q-3. Count Those Salaries whose > 10000, note : don't use filter.
+//Hint : reduce function
+
+var countSalary = salary.reduce((accumulator, currentValue) => accumulator + (currentValue > 10000 ? 1 : 0), 0);
+console.log("Number of salaries greater than 10,000 : " + countSalary);
+
+
+//Q-4. Maintain an Array of Employees. (Array of Objects), Now Sort the Employee by Name and Salary.
+
+var employees = [{name:"Mohit", salary:10000}, {name:"Ajay", salary:5000}, {name:"Rahul", salary:25000}, {name:"Nikhil", salary:30000}, {name:"Hanumant", salary:9000}, {name:"Ayush", salary:13000}, {name:"Vineet", salary:7500}];
+
+//sort by salary
+employees.sort((a, b) => a.salary-b.salary);
+
+//sort by name
+employees.sort((a, b) =>
+{
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    if (nameA > nameB)
+    {
+        return 1
+    }
+    else if (nameA < nameB)
+    {
+        return -1
+    }
+    else
+    {
+        return 0;
+    }
+});
+
+
+//Q-5. In Employee Salaries add 10% Tax in Each Employee Salary and Store in a new Array, So don't modify the Orginal Array.
+//Hint : filter, map
+
+//using 'filter'
+var employees = [{name:"Mohit", salary:10000}, {name:"Ajay", salary:5000}, {name:"Rahul", salary:25000}, {name:"Nikhil", salary:30000}, {name:"Hanumant", salary:9000}, {name:"Ayush", salary:13000}, {name:"Vineet", salary:7500}];
+var newEmployees = employees.filter(e => true);
+newEmployees.forEach(e => e.salary =  e.salary + ((e.salary*10)/100));
+newEmployees.forEach(e => console.log(e));
+
+//using map
+var employees = [{name:"Mohit", salary:10000}, {name:"Ajay", salary:5000}, {name:"Rahul", salary:25000}, {name:"Nikhil", salary:30000}, {name:"Hanumant", salary:9000}, {name:"Ayush", salary:13000}, {name:"Vineet", salary:7500}];
+var newEmployees = employees.map(e => ({name:e.name, salary:e.salary + ((e.salary*10)/100)}));
+newEmployees.forEach(e => console.log(e)); 
