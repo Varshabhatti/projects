@@ -1,1 +1,2 @@
-# summer_training_projects
+#projects
+
